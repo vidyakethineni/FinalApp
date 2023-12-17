@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            tools:src="@drawable/baseline_account_circle_24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:setImage="@{imageUrl}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

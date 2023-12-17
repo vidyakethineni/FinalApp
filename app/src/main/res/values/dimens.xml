@@ -1,0 +1,24 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <!--Margins-->
+    <dimen name="vertical_guideline_margin">16dp</dimen>
+    <dimen name="very_small_margin">4dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="medium_margin">12dp</dimen>
+    <dimen name="normal_margin">16dp</dimen>
+    <dimen name="large_margin_1">24dp</dimen>
+    <dimen name="large_margin_2">32dp</dimen>
+    <dimen name="large_margin_3">48dp</dimen>
+    <dimen name="large_margin_4">64dp</dimen>
+    <!--Margins-->
+    <dimen name="button_padding">32dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="button_corner_radius">57dp</dimen>
+    <dimen name="button_elevation">24dp</dimen>
+    <dimen name="normal_padding">16dp</dimen>
+    <dimen name="app_image_height">48dp</dimen>
+</resources>

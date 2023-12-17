@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.finalapp.ui.signup.SignupViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_blue"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.signup.SignupFragment">
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/title_text_style"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/sign_up"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+                    app:layout_constraintStart_toStartOf="@+id/guideLineStart"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/profileImv"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    android:background="@drawable/circle_shape"
+                    android:clipToOutline="true"
+                    android:elevation="16dp"
+                    android:setImage="@{viewModel.mSignupLiveData.imageUrl}"
+                    android:src="@drawable/baseline_account_circle_24"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+                    app:layout_constraintStart_toStartOf="@+id/guideLineStart"
+                    app:layout_constraintTop_toBottomOf="@id/textView"
+                    app:layout_goneMarginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFullName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin_1"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+                    app:layout_constraintStart_toStartOf="@+id/guideLineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/profileImv">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/full_name"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.mSignupLiveData.fullName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+                    app:layout_constraintStart_toStartOf="@+id/guideLineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/tilFullName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/emailAddress"
+                        android:inputType="textEmailAddress"
+                        android:text="@={viewModel.mSignupLiveData.emailId}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPwd"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_margin"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+                    app:layout_constraintStart_toStartOf="@+id/guideLineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.mSignupLiveData.password}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLineStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/vertical_guideline_margin"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLineEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/vertical_guideline_margin"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signupBtn"
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin_2"
+                    android:clickEnabled="@{!viewModel.isLoading}"
+                    android:text="@string/sign_up"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+                    app:layout_constraintStart_toStartOf="@+id/guideLineStart"
+                    app:layout_constraintTop_toBottomOf="@+id/tilPwd" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/progressLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/progress_background_color"
+                android:viewVisibility="@{viewModel.isLoading}"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:progressTint="@color/white" />
+            </FrameLayout>
+        </FrameLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
